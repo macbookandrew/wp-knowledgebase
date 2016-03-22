@@ -316,7 +316,8 @@ function update_asset_enqueueing_notice() {
 
     // check for existence of customized files
     $base = get_stylesheet_directory() . '/wp_knowledgebase/';
-    if ( empty( get_option( 'kbe_asset_enqueueing_notice_dismissed' ) ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_search.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
+    $notice_dismissed = get_option( 'kbe_asset_enqueueing_notice_dismissed' );
+    if ( ( ! isset( $notice_dismissed ) || '0' === $notice_dismissed ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_search.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
         printf( '<div class="%1$s"><h2>%2$s</h2><p>%3$s</p><pre><code>%4$s</code></pre></div>', $class, $title, $message, $code );
     }
 }
