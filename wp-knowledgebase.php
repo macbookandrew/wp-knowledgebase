@@ -426,8 +426,8 @@ register_sidebar(array(
     'name' => __('WP Knowledgebase Sidebar','kbe'),
     'id' => 'kbe_cat_widget',
     'description' => __('WP Knowledgebase sidebar area','kbe'),
-    'before_widget' => '',
-    'after_widget' => '',
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget' => '</section>',
     'before_title' => '<h6>',
     'after_title' => '</h6>',
 ));
